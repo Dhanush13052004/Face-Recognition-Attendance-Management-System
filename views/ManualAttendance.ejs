@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance CSV Viewer</title>
+</head>
+<body>
+    <div id="csvContent"></div>
+
+    <script>
+        // Function to fetch and display CSV data
+        function displayCSV() {
+            fetch('http://localhost:3000/Attendance/Attendance_01-04-2024.csv') // Updated path to include the "Attendance" folder
+                .then(response => response.text())
+                .then(csvData => {
+                    const lines = csvData.split('\n');
+                    const table = document.createElement('table');
+                    lines.forEach(line => {
+                        const row = table.insertRow();
+                        line.split(',').forEach(cell => {
+                            const cellElement = document.createElement('td');
+                            cellElement.textContent = cell.trim();
+                            row.appendChild(cellElement);
+                        });
+                    });
+                    document.getElementById('csvContent').appendChild(table);
+                })
+                .catch(error => {
+                    console.error('Error fetching CSV:', error);
+                    document.getElementById('csvContent').textContent = 'Error fetching CSV data';
+                });
+        }
+
+        // Call the displayCSV function when the page loads
+        window.addEventListener('load', displayCSV);
+    </script>
+</body>
+</html>

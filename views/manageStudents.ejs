@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Name to Flask Backend</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            color: #ffeba7;
+            background-color: #1f2029;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #2b2e38;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #ffeba7;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 20px); /* Adjusted width */
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2b2e38;
+            color: #ffeba7;
+            font-size: 16px;
+            outline: none;
+            transition: box-shadow 0.3s ease; /* Added transition */
+        }
+
+        input[type="text"]:focus {
+            box-shadow: 0 0 5px rgba(255, 235, 167, 0.5); /* Highlight on focus */
+        }
+
+        button {
+            background-color: #ffeba7;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #000000;
+            color: #ffeba7;
+        }
+    </style>
+</head>
+<body>
+    <form id="nameForm">
+        <label for="nameInput">Enter your name :</label>
+        <input type="text" id="nameInput" name="nameInput" placeholder="Enter your Name" required>
+        <button type="submit">Add</button>
+    </form>
+
+    <script>
+        document.getElementById('nameForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+            const name = document.getElementById('nameInput').value; // Get the input value
+
+            fetch('http://127.0.0.1:8000/send-name', { // Send a POST request to the Flask server
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ name: name }), // Send the name as JSON data
+            })
+            .then(response => response.json()) // Parse the JSON response from the server
+            .then(data => {
+                console.log('Response from server:', data); // Log the response from the server
+                // You can handle the response here, such as displaying a message to the user
+            })
+            .catch(error => {
+                console.error('Error:', error); // Log any errors that occur
+            });
+        });
+    </script>
+</body>
+</html>

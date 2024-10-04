@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Home</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            color: #ffeba7;
+            background-color: #1f2029;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        .link {
+            color: #ffeba7;
+        }
+
+        .link:hover {
+            color: #c4c3ca;
+        }
+
+        .header-text {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding-left: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            background-color: #ffeba7;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #000000;
+            color: #ffeba7;
+        }
+        .logout-btn {
+            position: absolute;
+            top: 20px;
+            right: 50px;
+            padding: 10px 20px;
+            font-size: 14px;
+            background-color: #ffeba7;
+            color: #000000;
+            border: none;
+            border-radius: 123234px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-btn:hover {
+            background-color: #000000;
+            color: #ffeba7;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="header-text">Hello Admin :)</h1>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+    <div class="button-container">
+        <button class="button" onclick="location.href='/add_faculty'">Manage Faculty</button>
+        <button class="button" onclick="location.href='/edit_timetable'">Edit Timetable</button>
+        <button class="button" onclick="location.href='/manageStudents'">Manage Students</button>
+        <!-- <a href="http://localhost:8000/python-file-add">HASdj</a> -->
+    </div>
+    <script>
+        function logout() {
+        // Redirect to logout page or perform logout operation
+        window.location.href = "index.html";
+    }
+    </script>
+</body>
+
+</html>

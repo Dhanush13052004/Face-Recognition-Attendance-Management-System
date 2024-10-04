@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.9/css/unicons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800,900" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            line-height: 1.7;
+            color: #ffeba7;
+            background-color: #1f2029;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 500px;
+        }
+
+        label {
+            margin-bottom: 5px;
+        }
+
+        input[type="email"],
+        input[type="text"],
+        input[type="password"] {
+            padding: 10px;
+            width: 100%;
+            margin-bottom: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #2b2e38;
+            color: #ffeba7;
+            font-size: 16px;
+            outline: none;
+        }
+
+        input[type="email"]:focus,
+        input[type="text"]:focus,
+        input[type="password"]:focus {
+            box-shadow: 0 0 5px #ffeba7;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            background-color: #ffeba7;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #000000;
+            color: #ffeba7;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h2>Faculty Registration</h2>
+        <form action="/add_faculty" method="POST">
+            <div class="form-group">
+                <label for="email">Email :</label>
+                <input type="email" id="email" name="email" placeholder="email" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Name :</label>
+                <input type="text" id="name" name="name" placeholder="name">
+            </div>
+            <div class="form-group">
+                <label for="department">Department :</label>
+                <input type="text" id="department" name="department" placeholder="department">
+            </div>
+            <div class="form-group">
+                <label for="password">Password :</label>
+                <input type="password" id="password" name="password" placeholder="password" required>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
